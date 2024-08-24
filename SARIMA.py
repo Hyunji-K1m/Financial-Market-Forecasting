@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue Mar 12 16:03:06 2024
-
 @author: kimhyunji
 """
 import pandas as pd
@@ -77,7 +75,7 @@ def ADJ_R2(y_true, y_pred, T, model):
 ##############################################################################
 # K54D data set
 ##############################################################################
-weekly_earnings_path = '/Users/kimhyunji/Desktop/Semester 2/Forecasting/Average weekly earnings data set.xlsx'
+weekly_earnings_path = file_path
 weekly_earnings = pd.read_excel(weekly_earnings_path, usecols=[0,75])
 month_earnings = weekly_earnings.iloc[570:858].set_index(weekly_earnings.columns[0])
 
