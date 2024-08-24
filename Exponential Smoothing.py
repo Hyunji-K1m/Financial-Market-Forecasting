@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Mar 11 20:22:41 2024
-
 @author: kimhyunji
 """
 import pandas as pd
@@ -22,7 +20,7 @@ from statsmodels.stats.diagnostic import acorr_ljungbox
 ##############################################################################
 #average weekly earnings data set
 ##############################################################################
-weekly_earnings_path = '/Users/kimhyunji/Desktop/Semester 2/Forecasting/Average weekly earnings data set.xlsx'
+weekly_earnings_path = file_path
 weekly_earnings = pd.read_excel(weekly_earnings_path, usecols=[0,75])
 year_earnings = weekly_earnings.iloc[6:30].set_index(weekly_earnings.columns[0])
 Q14_earnings = weekly_earnings.iloc[30:126].set_index(weekly_earnings.columns[0])
@@ -31,7 +29,7 @@ month_earnings = weekly_earnings.iloc[570:858].set_index(weekly_earnings.columns
 ##############################################################################
 # retail sales data set
 ##############################################################################
-retail_sales_path = '/Users/kimhyunji/Desktop/Semester 2/Forecasting/From retail sales time series data.xlsx'
+retail_sales_path = file_path
 retail_sales = pd.read_excel(retail_sales_path, usecols=[0,34])
 year_retail= retail_sales.iloc[18:42].set_index(retail_sales.columns[0])
 Q14_retail= retail_sales.iloc[90:186].set_index(retail_sales.columns[0])
@@ -40,7 +38,7 @@ month_retail= retail_sales.iloc[330:618].set_index(retail_sales.columns[0])
 ##############################################################################
 # production_data_set
 ##############################################################################
-production_path='/Users/kimhyunji/Desktop/Semester 2/Forecasting/From the index of production data set.xlsx'
+production_path= file_path
 production=pd.read_excel(production_path, usecols=[0,153])
 year_production= production.iloc[58:82].set_index(production.columns[0])
 Q14_production= production.iloc[290:386].set_index(production.columns[0])
@@ -49,7 +47,7 @@ month_production= production.iloc[1010:1298].set_index(production.columns[0])
 ##############################################################################
 # manufacturing data set
 ##############################################################################
-manu_path='/Users/kimhyunji/Desktop/Semester 2/Forecasting/series-150224.xls'
+manu_path= file_path
 manu=pd.read_excel(manu_path, usecols=[0,1])
 year_manu= manu.iloc[9:33].set_index(manu.columns[0])
 Q14_manu= manu.iloc[41:137].set_index(manu.columns[0])
