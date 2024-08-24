@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Wed Mar 13 22:15:13 2024
-
 @author: kimhyunji
 """
 
@@ -36,9 +34,9 @@ def month_to_date(month_string):
     return pd.Timestamp(year=int(year), month=month_number, day=1)
 
 def month_to_date2(month_string):
-    if isinstance(month_string, int):  # month_string이 정수형이면 문자열로 변환
+    if isinstance(month_string, int):  
         month_string = str(month_string)
-    day, month, year = month_string.split('/')  # 날짜 형식에 맞게 변경
+    day, month, year = month_string.split('/')  
     return pd.Timestamp(year=int(year), month=int(month), day=int(day))
 
 def calculate_vif(df, variables):
@@ -111,7 +109,7 @@ def ADJ_R2(y_true, y_pred, T, model):
 ##############################################################################
 #data set
 ##############################################################################
-weekly_earnings_path = '/Users/kimhyunji/Desktop/Semester 2/Forecasting/Average weekly earnings data set.xlsx'
+weekly_earnings_path = file_path
 weekly_earnings = pd.read_excel(weekly_earnings_path, usecols=[0,75])
 month_earnings = weekly_earnings.iloc[583:870].set_index(weekly_earnings.columns[0])
 month_earnings.index = month_earnings.index.astype(str)  
@@ -119,7 +117,7 @@ month_earnings.index = month_earnings.index.map(month_to_date)
 month_earnings.columns = ['K54D']
 month_earnings = month_earnings.astype(float)
 
-retail_sales_path = '/Users/kimhyunji/Desktop/Semester 2/Forecasting/From retail sales time series data.xlsx'
+retail_sales_path = file_path
 retail_sales = pd.read_excel(retail_sales_path, usecols=[0,34])
 month_retail= retail_sales.iloc[343:630].set_index(retail_sales.columns[0])
 month_retail.index = month_retail.index.astype(str)  
@@ -127,7 +125,7 @@ month_retail.index = month_retail.index.map(month_to_date)
 month_retail.columns = ['EAFV']
 month_retail = month_retail.astype(float)
 
-production_path='/Users/kimhyunji/Desktop/Semester 2/Forecasting/From the index of production data set.xlsx'
+production_path= file_path
 production=pd.read_excel(production_path, usecols=[0,153])
 month_production= production.iloc[1023:1310].set_index(production.columns[0])
 month_production.index = month_production.index.astype(str)  
@@ -135,7 +133,7 @@ month_production.index = month_production.index.map(month_to_date)
 month_production.columns = ['K226']
 month_production = month_production.astype(float)
 
-manu_path='/Users/kimhyunji/Desktop/Semester 2/Forecasting/series-150224.xls'
+manu_path= file_path
 manu=pd.read_excel(manu_path, usecols=[0,1])
 month_manu= manu.iloc[174:461].set_index(manu.columns[0])
 month_manu.index = month_manu.index.astype(str)  
@@ -146,7 +144,7 @@ data = pd.concat([month_earnings['K54D'],month_retail['EAFV'], month_production[
                    month_manu['JQ2J'],], axis=1, join='inner')
 x_columns = ['K54D', 'EAFV', 'K226', 'JQ2J']
 
-ftse_path='/Users/kimhyunji/Desktop/Semester 2/Forecasting/FTSE 2024(1).csv'
+ftse_path= file_path
 ftse=pd.read_csv(ftse_path,usecols=[0,2,3,4])
 month_ftse= ftse.iloc[2:277].set_index(ftse.columns[0])
 month_ftse = month_ftse.sort_index(ascending=True)
